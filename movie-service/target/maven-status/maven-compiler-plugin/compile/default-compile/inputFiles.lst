@@ -1,0 +1,12 @@
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\client\ActorClient.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\client\ReviewClient.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\config\ApplicationConfiguration.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\controller\MovieController.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\dto\ActorDto.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\dto\MovieDto.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\dto\ReviewDto.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\entity\Movie.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\mapper\EntityDtoMapper.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\MovieServiceApplication.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\repository\MovieRepository.java
+C:\Users\hakng\Documents\projects\hakngrow\udemy\opentelemetry-observability-main\01\movie-service\src\main\java\com\ensanguine\movie\service\MovieService.java

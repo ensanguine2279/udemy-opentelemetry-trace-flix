@@ -1,0 +1,13 @@
+com\ensanguine\movie\MovieServiceApplication.class
+com\ensanguine\movie\entity\Movie.class
+com\ensanguine\movie\client\ReviewClient$1.class
+com\ensanguine\movie\client\ReviewClient.class
+com\ensanguine\movie\config\ApplicationConfiguration.class
+com\ensanguine\movie\mapper\EntityDtoMapper.class
+com\ensanguine\movie\client\ActorClient.class
+com\ensanguine\movie\service\MovieService.class
+com\ensanguine\movie\dto\ReviewDto.class
+com\ensanguine\movie\dto\MovieDto.class
+com\ensanguine\movie\repository\MovieRepository.class
+com\ensanguine\movie\controller\MovieController.class
+com\ensanguine\movie\dto\ActorDto.class

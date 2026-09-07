@@ -1,0 +1,7 @@
+com\ensanguine\review\controller\ReviewController.class
+com\ensanguine\review\repository\ReviewRepository.class
+com\ensanguine\review\mapper\EntityDtoMapper.class
+com\ensanguine\review\ReviewServiceApplication.class
+com\ensanguine\review\dto\ReviewDto.class
+com\ensanguine\review\entity\Review.class
+com\ensanguine\review\service\ReviewService.class

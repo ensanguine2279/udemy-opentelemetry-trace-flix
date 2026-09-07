@@ -1,0 +1,7 @@
+com\ensanguine\actor\mapper\EntityDtoMapper.class
+com\ensanguine\actor\ActorServiceApplication.class
+com\ensanguine\actor\controller\ActorController.class
+com\ensanguine\actor\dto\ActorDto.class
+com\ensanguine\actor\entity\Actor.class
+com\ensanguine\actor\service\ActorService.class
+com\ensanguine\actor\repository\ActorRepository.class
