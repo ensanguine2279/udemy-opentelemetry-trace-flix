@@ -20,10 +20,14 @@ The goal of this application is to demonstrate how distributed tracing, metrics,
 
 ## Architecture
 
-![](.images/trace-flix-arch.png)
+![](.images/trace-flix-architecture.png)
 
 The **movie-service** is the central entry point.
 For example, when a request is sent for movie ID `2`, it fetches data from both **actor-service** and **review-service** to return complete movie details.
+
+Each service is deployed as a MVC Spring-Boot application, using an in-memory H2 database.
+
+![](.images/trace-flix-service-structure.png)
 
 Example response for `GET /api/movies/2`:
 
