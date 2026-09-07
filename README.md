@@ -73,6 +73,45 @@ Example response for `GET /api/movies/2`:
 
 This behavior is intentional so we can **observe traces, metrics, and logs under different conditions**.
 
+## Building & Running with Docker
+
+The project includes:
+
+- A **Dockerfile** for each individual service.
+- A **docker-compose.yaml** file at the project root to orchestrate all services together.
+
+### Steps
+
+From the **project root directory**, run:
+
+```bash
+# 1. build application JAR files. Ensure that you have Java 24+ is installed.
+mvn clean package
+
+# 2. build docker images and start all services
+docker compose up --build
+```
+
+This will build the JARs, create Docker images for each service, and bring up the full Trace-Flix application.
+
+## Testing the Services
+
+Once the application is up and running, we can test it using **Postman** or browser/curl.
+
+### Sample Requests
+
+```bash
+# normal & fast responses
+http://localhost:8080/api/movies/1
+http://localhost:8080/api/movies/2
+
+# simulated slow response
+http://localhost:8080/api/movies/9
+
+# simulated error
+http://localhost:8080/api/movies/10
+```
+
 ## Database Config
 
 The H2 database in each service can be configured via the `application.properties` file.
@@ -119,41 +158,6 @@ With the approporiate setup done, `http://localhost:<configured-port>/h2-console
 
 ![](/.images/trace-flix-h2-console-login.png)
 
-## Building & Running with Docker
+Locate the `Database JDBC URL` in the startup log, copy and paste the value into the `Login -> JDBC URL` and connect to the web console using the aproporiate `User Name` and `Password`.
 
-The project includes:
-
-- A **Dockerfile** for each individual service.
-- A **docker-compose.yaml** file at the project root to orchestrate all services together.
-
-### Steps
-
-From the **project root directory**, run:
-
-```bash
-# 1. build application JAR files. Ensure that you have Java 24+ is installed.
-mvn clean package
-
-# 2. build docker images and start all services
-docker compose up --build
-```
-
-This will build the JARs, create Docker images for each service, and bring up the full Trace-Flix application.
-
-## Testing the Services
-
-Once the application is up and running, we can test it using **Postman** or browser/curl.
-
-### Sample Requests
-
-```bash
-# normal & fast responses
-http://localhost:8080/api/movies/1
-http://localhost:8080/api/movies/2
-
-# simulated slow response
-http://localhost:8080/api/movies/9
-
-# simulated error
-http://localhost:8080/api/movies/10
-```
+![](/.images/trace-flix-h2-console.png)
