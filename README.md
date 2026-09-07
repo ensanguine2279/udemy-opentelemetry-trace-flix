@@ -93,7 +93,7 @@ In the default setup, there were no database settings. A random database name wi
 
 To expose the database console for data exploration, use the following settings:
 
-![](/.images/trace-flix-h2-console.png)
+![](/.images/trace-flix-h2-console-settings.png)
 
 In the default `docker-compose.yaml` setup, only `movie-service` has a ports mapping (`8080:8080`), making it the only service accessible directly from the host machine (localhost).
 
@@ -101,19 +101,23 @@ In the default `docker-compose.yaml` setup, only `movie-service` has a ports map
 
 If you need to access the H2 web console for `actor-service` or `review-service`, you will need to expose the container ports to host in `docker-compose.yaml`.
 
-```
+```yaml
 actor-service:
   image: ensanguine/actor-service
   build: ./actor-service
   ports:
-    - "8081:8080"  # Exposes actor-service H2 console at http://localhost:8081/h2-console
+    - "8081:8080" # Exposes actor-service H2 console at http://localhost:8081/h2-console
 
 review-service:
   image: ensanguine/review-service
   build: ./review-service
   ports:
-    - "8082:8080"  # Exposes review-service H2 console at http://localhost:8082/h2-console
+    - "8082:8080" # Exposes review-service H2 console at http://localhost:8082/h2-console
 ```
+
+With the approporiate setup done, `http://localhost:<configured-port>/h2-console` in the browser will bring up the console login.
+
+![](/.images/trace-flix-h2-console-login.png)
 
 ## Building & Running with Docker
 
