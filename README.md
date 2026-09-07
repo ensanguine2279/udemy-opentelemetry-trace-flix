@@ -91,12 +91,27 @@ To expose the database console for data exploration, use the following settings:
 
 > In the default `docker-compose.yaml` setup, only `movie-service` has a ports mapping (`8080:8080`),
 > making it the only service accessible directly from the host machine (localhost).
-
+>
 > `actor-service` and `review-service` operate entirely within Docker's internal container network.
 > They communicate via container hostnames (`http://actor-service:8080` and `http://review-service:8080`),
 > so their H2 web consoles cannot be reached from your host browser at localhost.
+>
+> If you need to access the H2 web console for `actor-service` or `review-service`, you will need to expose
+> the container ports to host in `docker-compose.yaml`.
 
-> If you need to access the H2 web console for actor-service or review-service
+```
+actor-service:
+  image: ensanguine/actor-service
+  build: ./actor-service
+  ports:
+    - "8081:8080"  # Exposes actor-service H2 console at http://localhost:8081/h2-console
+
+review-service:
+  image: ensanguine/review-service
+  build: ./review-service
+  ports:
+    - "8082:8080"  # Exposes review-service H2 console at http://localhost:8082/h2-console
+```
 
 ## Building & Running with Docker
 
