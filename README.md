@@ -83,21 +83,23 @@ To give a fixed name to the service database, use the following settings:
 
 ![](/.images/trace-flix-h2-settings.png)
 
+The `spring.datasource.url` contains the database name. The last segment of the url is the name of the database. In the above example the database name is `testdb`.
+
+In the default setup, there were no database settings. A random database name will be generated each time the service starts up. This is intentional to keep the setup simple so as to focus on observability aspects of the application.
+
+![](/.images/trace-flix-h2-dbname.png)
+
 ### Database Console
 
 To expose the database console for data exploration, use the following settings:
 
 ![](/.images/trace-flix-h2-console.png)
 
-> In the default `docker-compose.yaml` setup, only `movie-service` has a ports mapping (`8080:8080`),
-> making it the only service accessible directly from the host machine (localhost).
->
-> `actor-service` and `review-service` operate entirely within Docker's internal container network.
-> They communicate via container hostnames (`http://actor-service:8080` and `http://review-service:8080`),
-> so their H2 web consoles cannot be reached from your host browser at localhost.
->
-> If you need to access the H2 web console for `actor-service` or `review-service`, you will need to expose
-> the container ports to host in `docker-compose.yaml`.
+In the default `docker-compose.yaml` setup, only `movie-service` has a ports mapping (`8080:8080`), making it the only service accessible directly from the host machine (localhost).
+
+`actor-service` and `review-service` operate entirely within Docker's internal container network. They communicate via container hostnames (`http://actor-service:8080` and `http://review-service:8080`), so their H2 web consoles cannot be reached from your host browser at localhost.
+
+If you need to access the H2 web console for `actor-service` or `review-service`, you will need to expose the container ports to host in `docker-compose.yaml`.
 
 ```
 actor-service:
