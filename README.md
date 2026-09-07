@@ -29,6 +29,8 @@ Each service is deployed as a MVC Spring-Boot application, using an in-memory H2
 
 ![](.images/trace-flix-service-structure.png)
 
+## Movies API
+
 Example response for `GET /api/movies/2`:
 
 ```json
@@ -63,13 +65,29 @@ Example response for `GET /api/movies/2`:
 }
 ```
 
-## Supported Movie IDs
+### Supported Movie IDs
 
 - **1–7** → Normal & fast responses.
 - **8, 9** → Simulated slow responses.
 - **10** → Always throws an error (to demonstrate failure scenarios).
 
 This behavior is intentional so we can **observe traces, metrics, and logs under different conditions**.
+
+## Database Config
+
+The H2 database in each service can be configured via the `application.properties` file.
+
+### Database Settings
+
+To give a fixed name to the service database, use the following settings:
+
+![](/.images/trace-flix-h2-settings.png)
+
+### Database Console
+
+To expose the database console for data exploration, use the following settings:
+
+![](/.images/trace-flix-h2-console.png)
 
 ## Building & Running with Docker
 
