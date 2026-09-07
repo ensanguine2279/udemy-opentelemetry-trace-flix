@@ -158,6 +158,38 @@ With the approporiate setup done, `http://localhost:<configured-port>/h2-console
 
 ![](/.images/trace-flix-h2-console-login.png)
 
-Locate the `Database JDBC URL` in the startup log, copy and paste the value into the `Login -> JDBC URL` and connect to the web console using the aproporiate `User Name` and `Password`.
+Locate the `Database JDBC URL` in the startup log, copy and paste the value into the `Login -> JDBC URL` and connect to the web console using the aproporiate `User Name` and `Password`. The console page will appear as below:
 
 ![](/.images/trace-flix-h2-console.png)
+
+> Sometimes Spring Boot refuses to auto-configure the H2 Console Servlet, even when the settings are correct.
+> In such a situation, we will need to explicitly register the H2 Console servlet.
+>
+> To explicitly register the console servlet, add this bean to the application class of the Spring Boot service.
+
+```java
+package com.ensanguine.movie;
+
+import org.h2.server.web.JakartaWebServlet;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
+
+// Inside the main @SpringBootApplication class:
+@Bean
+public ServletRegistrationBean<JakartaWebServlet> h2ConsoleServletRegistration() {
+    ServletRegistrationBean<JakartaWebServlet> registrationBean =
+            new ServletRegistrationBean<>(new JakartaWebServlet(), "/h2-console/*");
+    registrationBean.setName("H2Console");
+    return registrationBean;
+}
+```
+
+> Recompile and restart the Docker container:
+
+```powershell
+mvnw clean package
+docker compose up --build
+```
+
+> When you check docker compose logs movie-service, you will see Tomcat map /h2-console/\*,
+> and navigating to http://localhost:8080/h2-console will load the login screen.
